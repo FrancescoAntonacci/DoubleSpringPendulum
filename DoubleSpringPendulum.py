@@ -54,7 +54,8 @@ xx1, yy1, zz1 = [], [], []
 xx2, yy2, zz2 = [], [], []
 
 duration = 100
-frames = 10000  # Reduced number of frames for quicker animation
+frames = 100000  # Reduced number of frames for quicker animation
+
 dt = duration / frames
 
 tt = np.linspace(0, duration, frames)
@@ -94,9 +95,9 @@ d3.set_xlabel('X')
 d3.set_ylabel('Y')
 d3.set_zlabel('Z')
 
-d3.set_xlim(np.min(xx1 + xx2)/2, np.max(xx1 + xx2)/2)
-d3.set_ylim(np.min(yy1 + yy2)/2, np.max(yy1 + yy2)/2)
-d3.set_zlim(np.min(zz1 + zz2)/2, np.max(zz1 + zz2)/2)
+d3.set_xlim(np.min(xx1 + xx2), np.max(xx1 + xx2))
+d3.set_ylim(np.min(yy1 + yy2), np.max(yy1 + yy2))
+d3.set_zlim(np.min(zz1 + zz2), np.max(zz1 + zz2))
 
 def init():
     line1.set_data([], [])
@@ -131,12 +132,12 @@ video = anim.FuncAnimation(fig, animate, init_func=init, frames=frames, interval
 
 # Display the plot
 
-# Set the directory path where the script is located
+# # Set the directory path where the script is located
 # script_dir = os.path.dirname(os.path.abspath("DoubleSpringPendulum.py"))
 # os.chdir(script_dir)
-
-# Save the animation
-# video.save("DoubleSpringPendulum.gif", writer=PillowWriter(fps=30))
+#
+# # Save the animation
+# video.save("DoubleSpringPendulum.gif", writer=PillowWriter(fps=5))
 
 plt.show()
 
